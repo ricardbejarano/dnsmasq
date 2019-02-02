@@ -14,4 +14,4 @@ Available at [`ricardbejarano/dnsmasq`](https://hub.docker.com/r/ricardbejarano/
 
 ## License
 
-See [LICENSE](LICENSE).
+See [LICENSE](https://github.com/ricardbejarano/dnsmasq/blob/master/LICENSE).
