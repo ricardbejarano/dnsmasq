@@ -4,12 +4,39 @@
 
 Available at [`ricardbejarano/dnsmasq`](https://hub.docker.com/r/ricardbejarano/dnsmasq).
 
+## Tags
+
+[`2.80`, `latest` *(Dockerfile)*](https://github.com/ricardbejarano/dnsmasq/blob/master/Dockerfile)
+
 
 ## Features
 
-* Super tiny (only `8MB`)
+* Super tiny (only `~2.26MB`)
 * Built from source
-* Based on the official `gcr.io/distroless/base` image
+* Built from `scratch`, see the [Filesystem](#Filesystem) section below for an exhaustive list of the image's contents
+* Reduced attack surface (no `bash`, no UNIX tools, no package manager...)
+
+
+## Filesystem
+
+The images' contents are:
+
+```
+/
+├── dnsmasq
+├── etc/
+│   ├── group
+│   └── passwd
+├── lib/
+│   └── x86_64-linux-gnu/
+│       ├── libc.so.6
+│       └── libnss_files.so.2
+├── lib64/
+│   └── ld-linux-x86-64.so.2
+└── var/
+    └── run/
+        └── .keep
+```
 
 
 ## License
