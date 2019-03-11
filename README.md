@@ -4,6 +4,7 @@
 
 Available at [`ricardbejarano/dnsmasq`](https://hub.docker.com/r/ricardbejarano/dnsmasq).
 
+
 ## Tags
 
 [`2.80`, `latest` *(Dockerfile)*](https://github.com/ricardbejarano/dnsmasq/blob/master/Dockerfile)
