@@ -5,13 +5,13 @@ ARG DNSMASQ_CHECKSUM="9e4a58f816ce0033ce383c549b7d4058ad9b823968d352d2b76614f83e
 
 ADD http://www.thekelleys.org.uk/dnsmasq/dnsmasq-$DNSMASQ_VERSION.tar.gz /tmp/dnsmasq.tar.gz
 
-WORKDIR /tmp
-RUN if [ "$DNSMASQ_CHECKSUM" != "$(sha256sum /tmp/dnsmasq.tar.gz | awk '{print $1}')" ]; then exit 1; fi && \
+RUN cd /tmp && \
+    if [ "$DNSMASQ_CHECKSUM" != "$(sha256sum /tmp/dnsmasq.tar.gz | awk '{print $1}')" ]; then exit 1; fi && \
     tar xf /tmp/dnsmasq.tar.gz && \
     mv /tmp/dnsmasq-$DNSMASQ_VERSION /tmp/dnsmasq
 
-WORKDIR /tmp/dnsmasq
-RUN apt update && \
+RUN cd /tmp/dnsmasq && \
+    apt update && \
     apt install -y gcc make && \
     make
 
