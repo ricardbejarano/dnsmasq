@@ -11,9 +11,9 @@ RUN cd /tmp && \
     mv /tmp/dnsmasq-$DNSMASQ_VERSION /tmp/dnsmasq
 
 RUN cd /tmp/dnsmasq && \
-    apt update && \
-    apt install -y gcc make && \
-    make
+      apt update && \
+      apt install -y gcc make && \
+      make
 
 
 FROM scratch
