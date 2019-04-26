@@ -27,4 +27,5 @@ COPY --from=build /tmp/dnsmasq/src/dnsmasq /dnsmasq
 
 COPY rootfs /
 
-CMD ["/dnsmasq", "--keep-in-foreground"]
+ENTRYPOINT ["/dnsmasq"]
+CMD ["--keep-in-foreground"]
