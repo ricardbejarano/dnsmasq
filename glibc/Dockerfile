@@ -13,7 +13,9 @@ RUN cd /tmp && \
 RUN cd /tmp/dnsmasq && \
       apt update && \
       apt install -y gcc make && \
-      make
+      make \
+        CFLAGS="-fstack-protector-all" \
+        LDFLAGS="-z relro -z now"
 
 
 FROM scratch
