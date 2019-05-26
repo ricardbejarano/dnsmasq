@@ -46,11 +46,11 @@ docker build -t dnsmasq:musl -f musl/Dockerfile .
 
 ## Security
 
-This image attempts to build a secure NGINX container image.
+This image attempts to build a secure Dnsmasq container image.
 
 It does so by the following ways:
 
-- downloading and verifying the source code of NGINX and every library it is built with,
+- downloading and verifying the source code of Dnsmasq and every library it is built with,
 - packaging the image with only those files required during runtime (see [Filesystem](#Filesystem)),
 - by enforcing a series of exploit mitigations (PIE, full RELRO, full SSP, NX and Fortify)
 
