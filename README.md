@@ -24,9 +24,9 @@ Available on [Quay](https://quay.io) as:
 
 * Super tiny (`glibc`-based is `~2.26MB` and `musl`-based is (an astonishing) `~961kB`)
 * Built from source
-* Built `FROM scratch`, see the [Filesystem](#Filesystem) section below for an exhaustive list of the image's contents
+* Built `FROM scratch`, see the [Filesystem](#filesystem) section below for an exhaustive list of the image's contents
 * Reduced attack surface (no `bash`, no UNIX tools, no package manager...)
-* Built with exploit mitigations enabled (see [Security](#Security))
+* Built with exploit mitigations enabled (see [Security](#security))
 
 
 ## Building
@@ -51,7 +51,7 @@ This image attempts to build a secure Dnsmasq container image.
 It does so by the following ways:
 
 - downloading and verifying the source code of Dnsmasq and every library it is built with,
-- packaging the image with only those files required during runtime (see [Filesystem](#Filesystem)),
+- packaging the image with only those files required during runtime (see [Filesystem](#filesystem)),
 - by enforcing a series of exploit mitigations (PIE, full RELRO, full SSP, NX and Fortify)
 
 ### Verifying the presence of exploit mitigations
@@ -86,8 +86,8 @@ Downloading ricardbejarano/dnsmasq:glibc...Done!
 Extracting ricardbejarano/dnsmasq:glibc:/dnsmasq...Done!
 Downloading checksec.sh...Done!
 Running checksec.sh:
-RELRO        STACK CANARY   NX           PIE           RPATH      RUNPATH      Symbols         FORTIFY   Fortified   Fortifiable   FILE
-Full RELRO   Canary found   NX enabled   PIE enabled   No RPATH   No RUNPATH   784 Symbols     Yes       0           44            /tmp/.checksec-ui8eKi3Q
+RELRO        STACK CANARY   NX           PIE           RPATH      RUNPATH      Symbols       FORTIFY   Fortified   Fortifiable   FILE
+Full RELRO   Canary found   NX enabled   PIE enabled   No RPATH   No RUNPATH   784 Symbols   Yes       0           44            /tmp/.checksec-ui8eKi3Q
 Cleaning up...Done!
 ```
 
