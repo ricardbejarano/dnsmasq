@@ -23,5 +23,8 @@ COPY --from=build /tmp/dnsmasq/src/dnsmasq /dnsmasq
 
 COPY rootfs /
 
+USER dnsmasq:dnsmasq
+WORKDIR /
+EXPOSE 53/udp
 ENTRYPOINT ["/dnsmasq"]
-CMD ["--keep-in-foreground", "--user=dnsmasq"]
+CMD ["--keep-in-foreground"]
