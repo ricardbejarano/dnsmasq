@@ -17,9 +17,8 @@ RUN cd /tmp/dnsmasq && \
 
 FROM scratch
 
-COPY --from=build /lib/ld-musl-x86_64.so.1 \
-                  /lib/
-COPY --from=build /tmp/dnsmasq/src/dnsmasq /dnsmasq
+COPY --from=build /lib/ld-musl-x86_64.so.1 /lib/
+COPY --from=build /tmp/dnsmasq/src/dnsmasq /
 
 COPY rootfs /
 
