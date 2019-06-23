@@ -9,15 +9,15 @@
 
 Available on [Docker Hub](https://hub.docker.com) as [`ricardbejarano/dnsmasq`](https://hub.docker.com/r/ricardbejarano/dnsmasq):
 
-- [`2.80-glibc`, `2.80`, `glibc`, `master`, `latest` *(glibc/Dockerfile)*](https://github.com/ricardbejarano/dnsmasq/blob/master/glibc/Dockerfile)
-- [`2.80-musl`, `musl` *(musl/Dockerfile)*](https://github.com/ricardbejarano/dnsmasq/blob/master/musl/Dockerfile)
+- [`2.80-glibc`, `2.80`, `glibc`, `master`, `latest` *(Dockerfile.glibc)*](https://github.com/ricardbejarano/dnsmasq/blob/master/Dockerfile.glibc)
+- [`2.80-musl`, `musl` *(Dockerfile.musl)*](https://github.com/ricardbejarano/dnsmasq/blob/master/Dockerfile.musl)
 
 ### Quay
 
 Available on [Quay](https://quay.io) as:
 
-- [`quay.io/ricardbejarano/dnsmasq-glibc`](https://quay.io/repository/ricardbejarano/dnsmasq-glibc), tags: [`2.80`, `master`, `latest` *(glibc/Dockerfile)*](https://github.com/ricardbejarano/dnsmasq/blob/master/glibc/Dockerfile)
-- [`quay.io/ricardbejarano/dnsmasq-musl`](https://quay.io/repository/ricardbejarano/dnsmasq-musl), tags: [`2.80`, `master`, `latest` *(musl/Dockerfile)*](https://github.com/ricardbejarano/dnsmasq/blob/master/musl/Dockerfile)
+- [`quay.io/ricardbejarano/dnsmasq-glibc`](https://quay.io/repository/ricardbejarano/dnsmasq-glibc), tags: [`2.80`, `master`, `latest` *(Dockerfile.glibc)*](https://github.com/ricardbejarano/dnsmasq/blob/master/Dockerfile.glibc)
+- [`quay.io/ricardbejarano/dnsmasq-musl`](https://quay.io/repository/ricardbejarano/dnsmasq-musl), tags: [`2.80`, `master`, `latest` *(Dockerfile.musl)*](https://github.com/ricardbejarano/dnsmasq/blob/master/Dockerfile.musl)
 
 
 ## Features
