@@ -1,1 +1,1 @@
-dnsmasq:*:0:dnsmasq
+nogroup:*:0:nobody

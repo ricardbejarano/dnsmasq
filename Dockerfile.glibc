@@ -29,4 +29,4 @@ COPY rootfs /
 
 EXPOSE 53/udp
 ENTRYPOINT ["/dnsmasq"]
-CMD ["--keep-in-foreground", "--user=dnsmasq"]
+CMD ["--keep-in-foreground"]
