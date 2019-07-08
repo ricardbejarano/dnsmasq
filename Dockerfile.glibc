@@ -9,9 +9,9 @@ RUN [ "$DNSMASQ_CHECKSUM" = "$(sha256sum /tmp/dnsmasq.tar.gz | awk '{print $1}')
     tar -C /tmp -xf /tmp/dnsmasq.tar.gz && \
     mv /tmp/dnsmasq-$DNSMASQ_VERSION /tmp/dnsmasq
 
-RUN cd /tmp/dnsmasq && \
-      apt update && \
-      apt install -y gcc make && \
+RUN apt update && \
+    apt install -y gcc make && \
+    cd /tmp/dnsmasq && \
       make \
         CFLAGS="-fstack-protector-all" \
         LDFLAGS="-z relro -z now"

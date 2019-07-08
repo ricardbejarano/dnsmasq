@@ -9,8 +9,8 @@ RUN [ "$DNSMASQ_CHECKSUM" = "$(sha256sum /tmp/dnsmasq.tar.gz | awk '{print $1}')
     tar -C /tmp -xf /tmp/dnsmasq.tar.gz && \
     mv /tmp/dnsmasq-$DNSMASQ_VERSION /tmp/dnsmasq
 
-RUN cd /tmp/dnsmasq && \
-      apk add gcc make musl-dev linux-headers && \
+RUN apk add gcc make musl-dev linux-headers && \
+    cd /tmp/dnsmasq && \
       make
 
 
