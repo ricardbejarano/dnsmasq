@@ -11,16 +11,20 @@ RUN [ "$DNSMASQ_CHECKSUM" = "$(sha256sum /tmp/dnsmasq.tar.gz | awk '{print $1}')
 
 RUN apk add gcc make musl-dev linux-headers && \
     cd /tmp/dnsmasq && \
-      make
+      make && \
+    echo "nogroup:*:100:nobody" > /tmp/group && \
+    echo "nobody:*:100:100:::" > /tmp/passwd
 
 
 FROM scratch
 
-COPY --from=build /lib/ld-musl-x86_64.so.1 /lib/
-COPY --from=build /tmp/dnsmasq/src/dnsmasq /
+COPY --from=build --chown=100:100 /tmp/dnsmasq/src/dnsmasq /
+COPY --from=build --chown=100:100 /lib/ld-musl-x86_64.so.1 /lib/
+COPY --from=build --chown=100:100 /tmp/group \
+                                  /tmp/passwd \
+                                  /etc/
 
-COPY rootfs /
-
-EXPOSE 53/udp
+USER 100:100
+EXPOSE 1053/udp
 ENTRYPOINT ["/dnsmasq"]
-CMD ["--user=dnsmasq", "--keep-in-foreground"]
+CMD ["--port=1053", "--keep-in-foreground"]

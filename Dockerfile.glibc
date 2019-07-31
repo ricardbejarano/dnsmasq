@@ -14,19 +14,23 @@ RUN apt update && \
     cd /tmp/dnsmasq && \
       make \
         CFLAGS="-fstack-protector-all" \
-        LDFLAGS="-z relro -z now"
+        LDFLAGS="-z relro -z now" && \
+    echo "nogroup:*:100:nobody" > /tmp/group && \
+    echo "nobody:*:100:100:::" > /tmp/passwd
 
 
 FROM scratch
 
-COPY --from=build /lib/x86_64-linux-gnu/libc.so.6 \
-                  /lib/x86_64-linux-gnu/libnss_files.so.2 \
-                  /lib/x86_64-linux-gnu/
-COPY --from=build /lib64/ld-linux-x86-64.so.2 /lib64/
-COPY --from=build /tmp/dnsmasq/src/dnsmasq /
+COPY --from=build --chown=100:100 /tmp/dnsmasq/src/dnsmasq /
+COPY --from=build --chown=100:100 /lib/x86_64-linux-gnu/libc.so.6 \
+                                  /lib/x86_64-linux-gnu/libnss_files.so.2 \
+                                  /lib/x86_64-linux-gnu/
+COPY --from=build --chown=100:100 /lib64/ld-linux-x86-64.so.2 /lib64/
+COPY --from=build --chown=100:100 /tmp/group \
+                                  /tmp/passwd \
+                                  /etc/
 
-COPY rootfs /
-
-EXPOSE 53/udp
+USER 100:100
+EXPOSE 1053/udp
 ENTRYPOINT ["/dnsmasq"]
-CMD ["--user=dnsmasq", "--keep-in-foreground"]
+CMD ["--port=1053", "--keep-in-foreground"]

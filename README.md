@@ -1,6 +1,6 @@
-<p align=center><img src=https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/155/performing-arts_1f3ad.png width=120px></p>
-<h1 align=center>dnsmasq (container image)</h1>
-<p align=center>Built-from-source container image of the <a href=http://www.thekelleys.org.uk/dnsmasq/doc.html>Dnsmasq DNS forwarder</a></p>
+<p align="center"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/155/performing-arts_1f3ad.png" width="120px"></p>
+<h1 align="center">dnsmasq (container image)</h1>
+<p align="center">Built-from-source container image of the <a href=http://www.thekelleys.org.uk/dnsmasq/doc.html>Dnsmasq DNS forwarder</a></p>
 
 
 ## Tags
@@ -22,11 +22,11 @@ Available on [Quay](https://quay.io) as:
 
 ## Features
 
-* Super tiny (`glibc`-based is `~2.35MB` and `musl`-based is (an astonishing) `~961kB`)
-* Compiled from source during build time
-* Built `FROM scratch`, see [Filesystem](#filesystem) for an exhaustive list of the image's contents
+* Super tiny (`glibc`-based image is about `2.51MB`, `musl`-based image is about `958kB`)
+* Compiled from source (with binary exploit mitigations) during build time
+* Built `FROM scratch`, with zero bloat (see [Filesystem](#filesystem))
 * Reduced attack surface (no shell, no UNIX tools, no package manager...)
-* Built with binary exploit mitigations enabled
+* Runs as unprivileged (non-`root`) user
 
 
 ## Building
@@ -36,8 +36,6 @@ Available on [Quay](https://quay.io) as:
 
 
 ## Filesystem
-
-The images' contents are:
 
 ### `glibc`
 
@@ -53,11 +51,8 @@ Based on the [glibc](https://www.gnu.org/software/libc/) implementation of `libc
 │   └── x86_64-linux-gnu/
 │       ├── libc.so.6
 │       └── libnss_files.so.2
-├── lib64/
-│   └── ld-linux-x86-64.so.2
-└── var/
-    └── run/
-        └── .keep
+└── lib64/
+    └── ld-linux-x86-64.so.2
 ```
 
 ### `musl`
@@ -70,11 +65,8 @@ Based on the [musl](https://www.musl-libc.org/) implementation of `libc`. Dynami
 ├── etc/
 │   ├── group
 │   └── passwd
-├── lib/
-│   └── ld-musl-x86_64.so.1
-└── var/
-    └── run/
-        └── .keep
+└── lib/
+    └── ld-musl-x86_64.so.1
 ```
 
 
