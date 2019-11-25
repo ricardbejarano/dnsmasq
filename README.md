@@ -9,20 +9,20 @@
 
 Available on [Docker Hub](https://hub.docker.com) as [`ricardbejarano/dnsmasq`](https://hub.docker.com/r/ricardbejarano/dnsmasq):
 
-- [`2.80-glibc`, `2.80`, `glibc`, `master`, `latest` *(Dockerfile.glibc)*](https://github.com/ricardbejarano/dnsmasq/blob/master/Dockerfile.glibc)
-- [`2.80-musl`, `musl` *(Dockerfile.musl)*](https://github.com/ricardbejarano/dnsmasq/blob/master/Dockerfile.musl)
+- [`2.80-glibc`, `2.80`, `glibc`, `master`, `latest` *(Dockerfile.glibc)*](https://github.com/ricardbejarano/dnsmasq/blob/master/Dockerfile.glibc) (about `2.51MB`)
+- [`2.80-musl`, `musl` *(Dockerfile.musl)*](https://github.com/ricardbejarano/dnsmasq/blob/master/Dockerfile.musl) (about `958kB`)
 
 ### Quay
 
 Available on [Quay](https://quay.io) as:
 
-- [`quay.io/ricardbejarano/dnsmasq-glibc`](https://quay.io/repository/ricardbejarano/dnsmasq-glibc), tags: [`2.80`, `master`, `latest` *(Dockerfile.glibc)*](https://github.com/ricardbejarano/dnsmasq/blob/master/Dockerfile.glibc)
-- [`quay.io/ricardbejarano/dnsmasq-musl`](https://quay.io/repository/ricardbejarano/dnsmasq-musl), tags: [`2.80`, `master`, `latest` *(Dockerfile.musl)*](https://github.com/ricardbejarano/dnsmasq/blob/master/Dockerfile.musl)
+- [`quay.io/ricardbejarano/dnsmasq-glibc`](https://quay.io/repository/ricardbejarano/dnsmasq-glibc), tags: [`2.80`, `master`, `latest` *(Dockerfile.glibc)*](https://github.com/ricardbejarano/dnsmasq/blob/master/Dockerfile.glibc) (about `2.51MB`)
+- [`quay.io/ricardbejarano/dnsmasq-musl`](https://quay.io/repository/ricardbejarano/dnsmasq-musl), tags: [`2.80`, `master`, `latest` *(Dockerfile.musl)*](https://github.com/ricardbejarano/dnsmasq/blob/master/Dockerfile.musl) (about `958kB`)
 
 
 ## Features
 
-* Super tiny (`glibc`-based image is about `2.51MB`, `musl`-based image is about `958kB`)
+* Super tiny (see [Tags](#tags))
 * Compiled from source (with binary exploit mitigations) during build time
 * Built `FROM scratch`, with zero bloat (see [Filesystem](#filesystem))
 * Reduced attack surface (no shell, no UNIX tools, no package manager...)
