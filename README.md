@@ -16,7 +16,7 @@ Available on [Docker Hub](https://hub.docker.com) as [`ricardbejarano/dnsmasq`](
 
 Available on [Quay](https://quay.io) as:
 
-- [`quay.io/ricardbejarano/dnsmasq-glibc`](https://quay.io/repository/ricardbejarano/dnsmasq-glibc), tags: [`2.80`, `master`, `latest` *(Dockerfile.glibc)*](https://github.com/ricardbejarano/dnsmasq/blob/master/Dockerfile.glibc) (about `2.51MB`)
+- [`quay.io/ricardbejarano/dnsmasq`](https://quay.io/repository/ricardbejarano/dnsmasq), [`quay.io/ricardbejarano/dnsmasq-glibc`](https://quay.io/repository/ricardbejarano/dnsmasq-glibc), tags: [`2.80`, `master`, `latest` *(Dockerfile.glibc)*](https://github.com/ricardbejarano/dnsmasq/blob/master/Dockerfile.glibc) (about `2.51MB`)
 - [`quay.io/ricardbejarano/dnsmasq-musl`](https://quay.io/repository/ricardbejarano/dnsmasq-musl), tags: [`2.80`, `master`, `latest` *(Dockerfile.musl)*](https://github.com/ricardbejarano/dnsmasq/blob/master/Dockerfile.musl) (about `958kB`)
 
 
