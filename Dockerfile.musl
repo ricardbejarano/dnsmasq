@@ -7,22 +7,20 @@ ADD http://www.thekelleys.org.uk/dnsmasq/dnsmasq-$VERSION.tar.gz /tmp/dnsmasq.ta
 
 RUN [ "$CHECKSUM" = "$(sha256sum /tmp/dnsmasq.tar.gz | awk '{print $1}')" ] && \
     tar -C /tmp -xf /tmp/dnsmasq.tar.gz && \
-    mv /tmp/dnsmasq-$VERSION /tmp/dnsmasq
+    apk add gcc make musl-dev linux-headers && \
+    cd /tmp/dnsmasq-$VERSION && \
+      make
 
-RUN apk add gcc make musl-dev linux-headers && \
-    cd /tmp/dnsmasq && \
-      make && \
-    echo "nogroup:*:100:nobody" > /tmp/group && \
-    echo "nobody:*:100:100:::" > /tmp/passwd
+RUN mkdir -p /rootfs/etc /rootfs/lib && \
+    cp /tmp/dnsmasq-$VERSION/src/dnsmasq /rootfs/ && \
+    cp /lib/ld-musl-x86_64.so.1 /rootfs/lib/ && \
+    echo "nogroup:*:100:nobody" > /rootfs/etc/group && \
+    echo "nobody:*:100:100:::" > /rootfs/etc/passwd
 
 
 FROM scratch
 
-COPY --from=build --chown=100:100 /tmp/dnsmasq/src/dnsmasq /
-COPY --from=build --chown=100:100 /lib/ld-musl-x86_64.so.1 /lib/
-COPY --from=build --chown=100:100 /tmp/group \
-                                  /tmp/passwd \
-                                  /etc/
+COPY --from=build --chown=100:100 /rootfs /
 
 USER 100:100
 EXPOSE 1053/udp
