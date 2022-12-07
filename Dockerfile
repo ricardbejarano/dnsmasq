@@ -1,7 +1,7 @@
 FROM alpine:3 AS build
 
-ARG VERSION="2.87"
-ARG CHECKSUM="ae39bffde9c37e4d64849b528afeb060be6bad6d1044a3bd94a49fce41357284"
+ARG VERSION="2.88"
+ARG CHECKSUM="da9d26aa3f3fc15f3b58b94edbb9ddf744cbce487194ea480bd8e7381b3ca028"
 
 ADD http://www.thekelleys.org.uk/dnsmasq/dnsmasq-$VERSION.tar.gz /tmp/dnsmasq.tar.gz
 
