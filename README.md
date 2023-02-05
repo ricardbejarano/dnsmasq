@@ -20,10 +20,10 @@
 
 Available on Docker Hub as [`docker.io/ricardbejarano/dnsmasq`](https://hub.docker.com/r/ricardbejarano/dnsmasq):
 
-- [`2.88`, `latest` *(Dockerfile)*](Dockerfile)
+- [`2.89`, `latest` *(Dockerfile)*](Dockerfile)
 
 ### RedHat Quay
 
 Available on RedHat Quay as [`quay.io/ricardbejarano/dnsmasq`](https://quay.io/repository/ricardbejarano/dnsmasq):
 
-- [`2.88`, `latest` *(Dockerfile)*](Dockerfile)
+- [`2.89`, `latest` *(Dockerfile)*](Dockerfile)
